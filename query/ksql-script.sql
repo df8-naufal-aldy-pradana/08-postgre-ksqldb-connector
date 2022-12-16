@@ -31,6 +31,9 @@ CREATE STREAM stream_table (
   ipk DOUBLE
 ) WITH (kafka_topic='jdbc_mahasiswa', value_format='json', partitions=1);
 
+-- Check stream table
+SELECT * FROM stream_table WHERE ipk > 3.0 EMIT CHANGES;
+
 -- Create materialized view
 CREATE TABLE table_mahasiswa AS
   SELECT
