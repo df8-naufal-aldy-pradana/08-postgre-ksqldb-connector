@@ -33,7 +33,7 @@ CREATE TABLE mahasiswa (
 ![postgre_table](docs/1-create-postgre-table.png)
 
 ```sql
--- Insert data
+# Insert data
 INSERT INTO mahasiswa (nama, alamat, umur, jurusan, ipk) VALUES ('Rizky', 'Jakarta', 20, 'Teknik Informatika', 3.5);
 INSERT INTO mahasiswa (nama, alamat, umur, jurusan, ipk) VALUES ('Naufal', 'Bandung', 21, 'Teknik Informatika', 3.6);
 INSERT INTO mahasiswa (nama, alamat, umur, jurusan, ipk) VALUES ('Rizal', 'Jakarta', 22, 'Teknik Informatika', 3.7);
@@ -48,7 +48,7 @@ INSERT INTO mahasiswa (nama, alamat, umur, jurusan, ipk) VALUES ('Rahim', 'Bandu
 ![postgre_insert](docs/2-populate-postgre.png)
 
 ```sql
--- Check data
+# Check data
 SELECT * FROM mahasiswa;
 ```
 
@@ -74,7 +74,7 @@ CREATE SOURCE CONNECTOR jdbc_connector WITH (
   'key'                      = 'id',
   'key.converter'            = 'org.apache.kafka.connect.converters.IntegerConverter');
 
--- Check connector
+# Check connector
 DESCRIBE CONNECTOR jdbc_connector;
 ```
 ![ksqldb_connector](docs/3-create-jdbc-connector.png)
@@ -82,7 +82,7 @@ DESCRIBE CONNECTOR jdbc_connector;
 
 6. Create a stream from the topic
 ```bash
--- Create stream table
+# Create stream table
 CREATE STREAM stream_table (
   id INTEGER KEY,
   nama VARCHAR,
@@ -98,7 +98,7 @@ CREATE STREAM stream_table (
 7. Create a table from the stream
 ```bash
 
--- Create materialized view
+# Create materialized view
 CREATE TABLE table_mahasiswa AS
   SELECT
     jurusan,
